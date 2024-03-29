@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with ChatGPT</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            padding: 0 10px;
+        }
+        #userInput {
+            width: 100%; /* Makes the input field responsive */
+            max-width: 500px; /* Ensures the field is not too wide on larger screens */
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+        }
+        #sendButton {
+            width: 100%;
+            max-width: 120px; /* Button width */
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        #response {
+            width: 100%;
+            max-width: 500px; /* Matches the max-width of the input field */
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            #userInput, #sendButton, #response {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            #sendButton:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <textarea id="userInput" placeholder="Type your message here..." onkeyup="checkInput()"></textarea>
+    <select id="aiSelector">
+        <option value="Gpt">GPT</option>
+        <option value="Claude">Claude</option>
+        <!-- More options may be added in the future -->
+    </select>
+    <button id="sendButton" onclick="sendMessage()" disabled>Send</button>
+    <div id="response">Your response will appear here...</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
